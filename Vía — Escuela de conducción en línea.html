@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vía — Escuela de conducción en línea</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f7fa;--card:#fff;--ink:#16213a;--mute:#56627a;--line:#d9dfe9;--road:#1f2a44;--sign:#f2c230;--signink:#1a1a1a;--ok:#1f8a5b;--roadink:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10172a;--card:#18223b;--ink:#eef1f7;--mute:#a3aec6;--line:#2b3757;--road:#0b1120;--ok:#4cc38a}}
+:root[data-theme="dark"]{--bg:#10172a;--card:#18223b;--ink:#eef1f7;--mute:#a3aec6;--line:#2b3757;--road:#0b1120;--ok:#4cc38a}
+*{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 Barlow,system-ui,sans-serif}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;line-height:1.05;margin:0}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{background:var(--road);color:var(--roadink)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font:700 28px "Barlow Condensed",sans-serif;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{width:22px;height:22px;background:var(--sign);transform:rotate(45deg);border-radius:3px;display:block}
+nav{display:flex;gap:18px;font-size:15px}
+nav a{text-decoration:none;opacity:.85}nav a:hover{opacity:1}
+@media(max-width:620px){nav a:not(.keep){display:none}}
+.btn{display:inline-block;background:var(--sign);color:var(--signink);font-weight:600;padding:12px 22px;border-radius:8px;text-decoration:none;border:0;cursor:pointer;font-size:16px;font-family:inherit}
+.btn.off{background:var(--line);color:var(--mute);cursor:not-allowed;text-align:center}
+.btn.ghost{background:transparent;color:inherit;border:2px solid currentColor}
+:focus-visible{outline:3px solid var(--sign);outline-offset:2px}
+.hero{background:var(--road);color:var(--roadink);padding:56px 0 72px;position:relative}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:10px;background:repeating-linear-gradient(90deg,var(--sign) 0 36px,transparent 36px 72px)}
+.hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+@media(max-width:800px){.hero .wrap{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(42px,7vw,72px)}
+.hero p{font-size:19px;max-width:34em;opacity:.9;margin:18px 0 26px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.signcard{background:#fff;color:#16213a;border:6px solid var(--sign);border-radius:14px;padding:22px;box-shadow:0 0 0 3px var(--road),0 0 0 5px #fff}
+.signcard h3{font-size:30px}
+.signcard ul{list-style:none;padding:0;margin:14px 0 0}
+.signcard li{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid #d9dfe9;font-size:16px}
+.signcard li b{font-family:"Barlow Condensed",sans-serif;font-size:22px}
+section{padding:64px 0}
+h2{font-size:clamp(32px,5vw,46px);margin-bottom:10px}
+.lead{color:var(--mute);max-width:40em;margin:0 0 32px}
+.route{list-style:none;margin:0;padding:0 0 0 34px;position:relative}
+.route::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;border-left:4px dashed var(--sign)}
+.route li{position:relative;padding:0 0 26px 18px}
+.route li:last-child{padding-bottom:0}
+.route li::before{content:attr(data-n);position:absolute;left:-34px;top:2px;width:26px;height:26px;background:var(--sign);color:var(--signink);font:700 15px/26px "Barlow Condensed",sans-serif;text-align:center;transform:rotate(45deg) scale(.82);border-radius:3px}
+.route li span{display:inline-block}
+.route h3{font-size:24px}
+.route p{margin:4px 0 0;color:var(--mute);max-width:46em}
+.tag{display:inline-block;font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;margin-left:8px;vertical-align:middle;background:var(--line);color:var(--ink)}
+.tag.home{background:var(--ok);color:#fff}
+.alt{background:var(--card);border-block:1px solid var(--line)}
+.tabs{display:flex;gap:8px;margin-bottom:26px}
+.tabs button{font:600 17px Barlow,sans-serif;padding:10px 20px;border-radius:8px;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--road);color:var(--roadink);border-color:var(--road)}
+.bars{display:grid;gap:10px;margin-bottom:30px;max-width:640px}
+.bar{display:grid;grid-template-columns:150px 1fr 54px;gap:12px;align-items:center;font-size:15px}
+.bar div{height:14px;border-radius:7px;background:var(--line);overflow:hidden}
+.bar div i{display:block;height:100%;background:var(--ok);transition:width .4s}
+.bar b{text-align:right}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.plan{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column}
+.plan.best{border-color:var(--sign)}
+.plan h3{font-size:30px}
+.price{font:700 40px "Barlow Condensed",sans-serif;margin:8px 0 2px}
+.price small{font:400 15px Barlow,sans-serif;color:var(--mute)}
+.plan ul{padding:0;margin:16px 0 22px;list-style:none;flex:1}
+.plan li{padding:6px 0 6px 26px;position:relative}
+.plan li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:700}
+.plan li.no{color:var(--mute)}.plan li.no::before{content:"–";color:var(--mute)}
+.note{font-size:14px;color:var(--mute);margin-top:18px}
+.soon{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.soon div{border:2px dashed var(--line);border-radius:12px;padding:18px}
+.soon h3{font-size:26px}.soon p{margin:4px 0 0;color:var(--mute);font-size:15px}
+.costs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.costs div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.costs b{display:block;font:700 21px "Barlow Condensed",sans-serif}
+.costs span{color:var(--mute);font-size:15px}
+details{border-bottom:1px solid var(--line);padding:16px 0}
+summary{cursor:pointer;font:600 19px Barlow,sans-serif;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";font-size:24px;line-height:1;color:var(--mute)}
+details[open] summary::after{content:"–"}
+details p{color:var(--mute);margin:10px 0 0;max-width:46em}
+.contact{background:var(--road);color:var(--roadink);text-align:center}
+.contact p{max-width:34em;margin:0 auto 24px;opacity:.9}
+footer{padding:24px 0;font-size:14px;color:var(--mute);text-align:center}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="#"><i></i>Vía</a>
+  <nav><a href="#ruta">El proceso</a><a href="#planes">Planes</a><a href="#preguntas">Preguntas</a><a class="keep" href="#contacto">Inscribirme</a></nav>
+</div></header>
+
+<main>
+<div class="hero"><div class="wrap">
+  <div>
+    <h1>Tu licencia de moto, sin salones aburridos.</h1>
+    <p>Haz la teoría desde tu casa, a tu ritmo. Te explicamos cada paso que exige el Ministerio de Transporte, cuánto cuesta y cuánto tarda, antes de que pagues.</p>
+    <div class="cta"><a class="btn" href="#planes">Ver planes y precios</a><a class="btn ghost" href="#ruta">Cómo funciona</a></div>
+  </div>
+  <div class="signcard" aria-label="Horas exigidas para la licencia A2">
+    <h3>Licencia A2 (moto de más de 125 c.c.)</h3>
+    <ul>
+      <li><span>Teoría</span><b>25 h</b></li>
+      <li><span>Taller de mecánica básica</span><b>3 h</b></li>
+      <li><span>Práctica de manejo</span><b>15 h</b></li>
+      <li><span>Total exigido</span><b>43 h</b></li>
+    </ul>
+  </div>
+</div></div>
+
+<section id="ruta"><div class="wrap">
+  <h2>El camino hasta tu licencia</h2>
+  <p class="lead">Son siete pasos. La etiqueta verde marca lo que puedes adelantar desde casa.</p>
+  <ol class="route">
+    <li data-n="1"><h3>Examen médico <span class="tag">Presencial</span></h3><p>Se hace en un Centro de Reconocimiento de Conductores autorizado. Sin este certificado no puedes empezar.</p></li>
+    <li data-n="2"><h3>Inscripción y validación de identidad <span class="tag">Presencial, una vez</span></h3><p>Registramos tus datos y validas tu identidad con huella, como exige el sistema del Ministerio. Es la única visita obligatoria antes de arrancar con la teoría.</p></li>
+    <li data-n="3"><h3>Teoría: 25 horas <span class="tag home">Desde casa</span></h3><p>Normas, señales, seguridad vial y prioridades, con lecciones cortas y tests de repaso. La modalidad virtual se ofrece conforme a lo que permita el Ministerio a través del RUNT.</p></li>
+    <li data-n="4"><h3>Taller de mecánica básica: 3 horas <span class="tag">Presencial</span></h3><p>Revisión previa de la moto, llantas, frenos, aceite y qué hacer ante una falla sencilla.</p></li>
+    <li data-n="5"><h3>Práctica de manejo <span class="tag">Presencial</span></h3><p>8 horas en A1 y 15 horas en A2, con instructor, primero en pista y luego en vía.</p></li>
+    <li data-n="6"><h3>Exámenes teórico y práctico <span class="tag">Presencial</span></h3><p>Se presentan ante el centro de evaluación asignado. Si no apruebas, repites la prueba y vuelves a pagarla.</p></li>
+    <li data-n="7"><h3>Tu licencia</h3><p>Pagas los derechos de expedición y recibes tu licencia.</p></li>
+  </ol>
+</div></section>
+
+<section id="planes" class="alt"><div class="wrap">
+  <h2>Planes</h2>
+  <p class="lead">Elige tu categoría. Las horas son las mismas en todos los planes porque las fija el gobierno.</p>
+  <div class="tabs" role="tablist" aria-label="Categoría de licencia">
+    <button role="tab" id="t-A1" aria-selected="false" data-cat="A1">A1 · hasta 125 c.c.</button>
+    <button role="tab" id="t-A2" aria-selected="true" data-cat="A2">A2 · más de 125 c.c.</button>
+  </div>
+  <div class="bars" id="bars"></div>
+  <div class="plans" id="plans"></div>
+  <p class="note">Pagas en una pantalla segura de nuestro proveedor de pagos, donde eliges tu método. Valores de referencia; no incluyen examen médico, derechos de expedición ni exámenes de evaluación (ver abajo).</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Lo que se paga aparte</h2>
+  <p class="lead">Estos costos los fijan otras entidades, no la escuela. Te mostramos dónde y cuándo se pagan para que no te sorprendan.</p>
+  <div class="costs">
+    <div><b>Examen médico</b><span>Lo cobra el Centro de Reconocimiento de Conductores.</span></div>
+    <div><b>Registro en el RUNT</b><span>Trámite de inscripción como aspirante.</span></div>
+    <div><b>Exámenes de evaluación</b><span>Teórico y práctico ante el centro de evaluación.</span></div>
+    <div><b>Derechos de la licencia</b><span>Se pagan al final, al expedirla.</span></div>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <h2>Próximamente</h2>
+  <p class="lead">Empezamos con motos. Los cursos de carro y servicio público llegan después.</p>
+  <div class="soon">
+    <div><h3>B1</h3><p>Carro particular</p></div>
+    <div><h3>C1</h3><p>Carro de servicio público</p></div>
+    <div><h3>B2 y C2</h3><p>Camión y bus</p></div>
+  </div>
+</div></section>
+
+<section id="preguntas"><div class="wrap">
+  <h2>Preguntas frecuentes</h2>
+  <p class="lead">Respuestas directas, sin letra pequeña.</p>
+  <details><summary>¿Puedo hacer todo desde mi casa?</summary><p>No todo. La teoría sí puede hacerse en línea. La validación de identidad con huella, el médico, el taller, las prácticas y los exámenes son presenciales.</p></details>
+  <details><summary>¿Para qué sirve la huella?</summary><p>El sistema del Ministerio valida con huella que la persona que toma las clases es la misma que se inscribió. Evita que alguien más conteste por ti.</p></details>
+  <details><summary>¿Cuánto tiempo toma?</summary><p>Las horas son fijas: 36 en A1 y 43 en A2. El tiempo total depende de qué tan seguido puedas tomar las clases y de la agenda de prácticas.</p></details>
+  <details><summary>¿Qué diferencia hay entre A1 y A2?</summary><p>A1 es para motos de hasta 125 c.c. y A2 para motos de más de 125 c.c. A2 pide más horas de manejo.</p></details>
+  <details><summary>¿Qué pasa si repruebo un examen?</summary><p>Puedes volver a presentarlo, pero la prueba se paga de nuevo. Por eso incluimos tests de repaso en cada módulo de teoría.</p></details>
+</div></section>
+
+<section id="contacto" class="contact"><div class="wrap">
+  <h2>¿Listo para empezar?</h2>
+  <p>Elige tu plan y paga en línea, en una pantalla segura donde escoges tu método de pago.</p>
+  <a class="btn" href="#planes">Elegir mi plan</a>
+</div></section>
+</main>
+<footer><div class="wrap">Vía · Escuela de conducción en línea · Valle de Tenza y Almeidas</div></footer>
+
+<script>
+// Edita aquí precios, horas y los enlaces de pago de tu proveedor (Wompi, ePayco, Mercado Pago, etc.).
+// Pega un enlace por plan. Mientras esté vacío, el botón muestra "Pago disponible pronto".
+const PAY_LINKS = {
+  "A1-Curso":"", "A1-Todo incluido":"",
+  "A2-Curso":"", "A2-Todo incluido":""
+};
+const DATA = {
+  A1:{hours:[["Teoría",25],["Taller",3],["Manejo",8]],total:36,
+      plans:[{name:"Curso",price:650000,items:["25 h de teoría en línea","3 h de taller","8 h de práctica con instructor","Certificado del curso"],no:["Acompañamiento en trámites"]},
+             {name:"Todo incluido",price:850000,best:true,items:["Todo lo del plan Curso","Acompañamiento en médico, RUNT y exámenes","Tests de repaso ilimitados","Una práctica extra de refuerzo"],no:[]}]},
+  A2:{hours:[["Teoría",25],["Taller",3],["Manejo",15]],total:43,
+      plans:[{name:"Curso",price:750000,items:["25 h de teoría en línea","3 h de taller","15 h de práctica con instructor","Certificado del curso"],no:["Acompañamiento en trámites"]},
+             {name:"Todo incluido",price:950000,best:true,items:["Todo lo del plan Curso","Acompañamiento en médico, RUNT y exámenes","Tests de repaso ilimitados","Una práctica extra de refuerzo"],no:[]}]}
+};
+const cop=n=>"$"+n.toLocaleString("es-CO");
+function payBtn(cat,p){
+  const url=PAY_LINKS[cat+"-"+p.name];
+  return url?`<a class="btn" href="${url}" target="_blank" rel="noopener">Pagar este plan</a>`:`<span class="btn off" aria-disabled="true">Pago disponible pronto</span>`;
+}
+function show(cat){
+  const d=DATA[cat];
+  document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.cat===cat));
+  document.getElementById("bars").innerHTML=d.hours.map(([n,h])=>`<div class="bar"><span>${n}</span><div><i style="width:${h/25*100}%"></i></div><b>${h} h</b></div>`).join("")+`<div class="bar"><span><b>Total</b></span><span></span><b>${d.total} h</b></div>`;
+  document.getElementById("plans").innerHTML=d.plans.map(p=>`<div class="plan${p.best?" best":""}"><h3>${p.name}</h3><div class="price">${cop(p.price)} <small>COP</small></div><ul>${p.items.map(i=>`<li>${i}</li>`).join("")}${p.no.map(i=>`<li class="no">${i}</li>`).join("")}</ul>${payBtn(cat,p)}</div>`).join("");
+}
+document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>show(b.dataset.cat)));
+show("A2");
+</script>
+</body>
+</html>
