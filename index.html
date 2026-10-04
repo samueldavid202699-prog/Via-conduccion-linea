@@ -88,21 +88,49 @@ details p{color:var(--mute);margin:10px 0 0;max-width:46em}
 .contact{background:var(--road);color:var(--roadink);text-align:center}
 .contact p{max-width:34em;margin:0 auto 24px;opacity:.9}
 footer{padding:24px 0;font-size:14px;color:var(--mute);text-align:center}
+.hero{padding-bottom:104px}
+.hero h1{font-size:clamp(46px,9vw,92px);letter-spacing:-.5px}
+.hero h1 .y{color:var(--sign)}
+.moto{position:absolute;bottom:14px;left:calc(100% - 160px);animation:ride 3.2s cubic-bezier(.2,.7,.2,1) 1}
+@keyframes ride{from{left:-130px}to{left:calc(100% - 160px)}}
+.stats{background:var(--sign);color:var(--signink)}
+.stats .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-block:22px}
+.stats b{display:block;font:700 40px/1 "Barlow Condensed",sans-serif}
+.stats span{font-size:15px;font-weight:500}
+@media(max-width:620px){.stats .wrap{grid-template-columns:1fr;gap:14px}.stats b{font-size:34px}}
+.plan{position:relative}
+.plan.best{border-width:3px;box-shadow:0 12px 32px rgba(242,194,48,.28)}
+.badge{position:absolute;top:-15px;left:22px;background:var(--sign);color:var(--signink);font-weight:700;padding:3px 14px;border-radius:99px;font-size:14px}
+.stick{display:none;position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--road);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));text-align:center}
+.stick .btn{display:block}
+@media(max-width:620px){.stick{display:block}footer{padding-bottom:84px}}
+@media(prefers-reduced-motion:reduce){.moto{animation:none}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.btn.wa{background:#25d366;color:#06361b;display:inline-flex;align-items:center;gap:8px;justify-content:center}
+.btn.wa.sm{background:transparent;color:var(--ink);border:2px solid var(--line);margin-top:10px;font-size:15px;padding:9px 16px}
+.btn.wa.sm:hover{border-color:#25d366}
+.ico{flex:none}
+nav a.pill{background:#25d366;color:#06361b;opacity:1;font-weight:600;padding:6px 14px;border-radius:99px;display:inline-flex;align-items:center;gap:6px}
+.wa-float{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:6;box-shadow:0 8px 24px rgba(0,0,0,.28);border-radius:99px;padding:14px 22px}
+@media(max-width:620px){.wa-float{display:none}.stick{display:flex!important;gap:10px}.stick .btn{flex:1;padding:12px 10px}}
+.contact .cta2{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.contact small{display:block;margin-top:16px;opacity:.8}
+.plan{transition:transform .2s,box-shadow .2s}.plan:hover{transform:translateY(-4px)}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s}.rv.in{opacity:1;transform:none}
 </style>
 </head>
 <body>
 <header><div class="wrap">
   <a class="logo" href="#"><i></i>Vía</a>
-  <nav><a href="#ruta">El proceso</a><a href="#planes">Planes</a><a href="#preguntas">Preguntas</a><a class="keep" href="#contacto">Inscribirme</a></nav>
+  <nav><a href="#ruta">El proceso</a><a href="#planes">Planes</a><a href="#preguntas">Preguntas</a><a class="keep" href="#planes">Inscribirme</a><a class="keep pill" href="https://wa.me/573229624731?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20licencia%20de%20moto" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8.8 8.6c.3 3 2.700 5.600 5.800 6.300l1.300-1.300-2-1-.9.800c-1-.4-1.900-1.300-2.300-2.300l.8-.9-1-2z" fill="currentColor"/></svg> WhatsApp</a></nav>
 </div></header>
 
 <main>
 <div class="hero"><div class="wrap">
   <div>
-    <h1>Tu licencia de moto, sin salones aburridos.</h1>
+    <h1>Tu licencia de moto,<br><span class="y">sin salones aburridos.</span></h1>
     <p>Haz la teoría desde tu casa, a tu ritmo. Te explicamos cada paso que exige el Ministerio de Transporte, cuánto cuesta y cuánto tarda, antes de que pagues.</p>
-    <div class="cta"><a class="btn" href="#planes">Ver planes y precios</a><a class="btn ghost" href="#ruta">Cómo funciona</a></div>
+    <div class="cta"><a class="btn" href="#planes">Ver planes y precios</a><a class="btn ghost" href="#ruta">Cómo funciona</a><a class="btn wa" href="https://wa.me/573229624731?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20licencia%20de%20moto" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8.8 8.6c.3 3 2.700 5.600 5.800 6.300l1.300-1.300-2-1-.9.800c-1-.4-1.900-1.300-2.300-2.300l.8-.9-1-2z" fill="currentColor"/></svg> Escríbenos</a></div>
   </div>
   <div class="signcard" aria-label="Horas exigidas para la licencia A2">
     <h3>Licencia A2 (moto de más de 125 c.c.)</h3>
@@ -113,6 +141,13 @@ footer{padding:24px 0;font-size:14px;color:var(--mute);text-align:center}
       <li><span>Total exigido</span><b>43 h</b></li>
     </ul>
   </div>
+</div>
+<svg class="moto" viewBox="0 0 120 70" width="120" height="70" aria-hidden="true"><circle cx="24" cy="50" r="14" fill="none" stroke="#fff" stroke-width="5"/><circle cx="96" cy="50" r="14" fill="none" stroke="#fff" stroke-width="5"/><path d="M24 50 L46 30 L72 30 L96 50 M88 34 L84 24 L98 24 M40 28 h26" fill="none" stroke="#f2c230" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+<div class="stats"><div class="wrap">
+  <div><b>43 h</b><span>es todo lo que exige el gobierno para la A2</span></div>
+  <div><b>Desde casa</b><span>25 horas de teoría, a tu ritmo</span></div>
+  <div><b>Precio claro</b><span>sabes qué pagas y a quién, antes de empezar</span></div>
 </div></div>
 
 <section id="ruta"><div class="wrap">
@@ -175,11 +210,14 @@ footer{padding:24px 0;font-size:14px;color:var(--mute);text-align:center}
 <section id="contacto" class="contact"><div class="wrap">
   <h2>¿Listo para empezar?</h2>
   <p>Elige tu plan y paga en línea, en una pantalla segura donde escoges tu método de pago.</p>
-  <a class="btn" href="#planes">Elegir mi plan</a>
+  <div class="cta2"><a class="btn" href="#planes">Elegir mi plan</a><a class="btn wa" href="https://wa.me/573229624731?text=Hola%2C%20tengo%20una%20duda%20sobre%20la%20licencia%20de%20moto" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8.8 8.6c.3 3 2.700 5.600 5.800 6.300l1.300-1.300-2-1-.9.800c-1-.4-1.900-1.300-2.300-2.300l.8-.9-1-2z" fill="currentColor"/></svg> Resolver dudas por WhatsApp</a></div>
+  <small>WhatsApp: 322 962 4731</small>
 </div></section>
 </main>
-<footer><div class="wrap">Vía · Escuela de conducción en línea · Valle de Tenza y Almeidas</div></footer>
+<footer><div class="wrap">Vía · Escuela de conducción en línea · Valle de Tenza y Almeidas · WhatsApp 322 962 4731</div></footer>
 
+<a class="btn wa wa-float" href="https://wa.me/573229624731?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20licencia%20de%20moto" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8.8 8.6c.3 3 2.700 5.600 5.800 6.300l1.300-1.300-2-1-.9.800c-1-.4-1.900-1.300-2.300-2.300l.8-.9-1-2z" fill="currentColor"/></svg> WhatsApp</a>
+<div class="stick"><a class="btn" href="#planes">Ver planes</a><a class="btn wa" href="https://wa.me/573229624731?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20licencia%20de%20moto" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8.8 8.6c.3 3 2.700 5.600 5.800 6.300l1.300-1.300-2-1-.9.800c-1-.4-1.900-1.300-2.300-2.300l.8-.9-1-2z" fill="currentColor"/></svg> WhatsApp</a></div>
 <script>
 // Edita aquí precios, horas y los enlaces de pago de tu proveedor (Wompi, ePayco, Mercado Pago, etc.).
 // Pega un enlace por plan. Mientras esté vacío, el botón muestra "Pago disponible pronto".
@@ -189,25 +227,31 @@ const PAY_LINKS = {
 };
 const DATA = {
   A1:{hours:[["Teoría",25],["Taller",3],["Manejo",8]],total:36,
-      plans:[{name:"Curso",price:650000,items:["25 h de teoría en línea","3 h de taller","8 h de práctica con instructor","Certificado del curso"],no:["Acompañamiento en trámites"]},
-             {name:"Todo incluido",price:850000,best:true,items:["Todo lo del plan Curso","Acompañamiento en médico, RUNT y exámenes","Tests de repaso ilimitados","Una práctica extra de refuerzo"],no:[]}]},
+      plans:[{name:"Curso",price:520000,items:["25 h de teoría en línea","3 h de taller","8 h de práctica con instructor","Certificado del curso"],no:["Acompañamiento en trámites"]},
+             {name:"Todo incluido",price:720000,best:true,items:["Todo lo del plan Curso","Acompañamiento en médico, RUNT y exámenes","Tests de repaso ilimitados","Una práctica extra de refuerzo"],no:[]}]},
   A2:{hours:[["Teoría",25],["Taller",3],["Manejo",15]],total:43,
-      plans:[{name:"Curso",price:750000,items:["25 h de teoría en línea","3 h de taller","15 h de práctica con instructor","Certificado del curso"],no:["Acompañamiento en trámites"]},
-             {name:"Todo incluido",price:950000,best:true,items:["Todo lo del plan Curso","Acompañamiento en médico, RUNT y exámenes","Tests de repaso ilimitados","Una práctica extra de refuerzo"],no:[]}]}
+      plans:[{name:"Curso",price:600000,items:["25 h de teoría en línea","3 h de taller","15 h de práctica con instructor","Certificado del curso"],no:["Acompañamiento en trámites"]},
+             {name:"Todo incluido",price:850000,best:true,items:["Todo lo del plan Curso","Acompañamiento en médico, RUNT y exámenes","Tests de repaso ilimitados","Una práctica extra de refuerzo"],no:[]}]}
 };
+const WA_NUM="573229624731";
+const WA_ICON=`<svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8.8 8.6c.3 3 2.700 5.600 5.800 6.300l1.300-1.300-2-1-.9.800c-1-.4-1.900-1.300-2.300-2.300l.8-.9-1-2z" fill="currentColor"/></svg>`;
 const cop=n=>"$"+n.toLocaleString("es-CO");
 function payBtn(cat,p){
   const url=PAY_LINKS[cat+"-"+p.name];
-  return url?`<a class="btn" href="${url}" target="_blank" rel="noopener">Pagar este plan</a>`:`<span class="btn off" aria-disabled="true">Pago disponible pronto</span>`;
+  const main=url?`<a class="btn" href="${url}" target="_blank" rel="noopener">Pagar este plan</a>`:`<span class="btn off" aria-disabled="true">Pago disponible pronto</span>`;
+  const msg=encodeURIComponent(`Hola, me interesa el plan ${p.name} de la licencia ${cat} (${cop(p.price)}). ¿Me das más información?`);
+  return main+`<a class="btn wa sm" href="https://wa.me/${WA_NUM}?text=${msg}" target="_blank" rel="noopener">${WA_ICON} Preguntar por este plan</a>`;
 }
 function show(cat){
   const d=DATA[cat];
   document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.cat===cat));
   document.getElementById("bars").innerHTML=d.hours.map(([n,h])=>`<div class="bar"><span>${n}</span><div><i style="width:${h/25*100}%"></i></div><b>${h} h</b></div>`).join("")+`<div class="bar"><span><b>Total</b></span><span></span><b>${d.total} h</b></div>`;
-  document.getElementById("plans").innerHTML=d.plans.map(p=>`<div class="plan${p.best?" best":""}"><h3>${p.name}</h3><div class="price">${cop(p.price)} <small>COP</small></div><ul>${p.items.map(i=>`<li>${i}</li>`).join("")}${p.no.map(i=>`<li class="no">${i}</li>`).join("")}</ul>${payBtn(cat,p)}</div>`).join("");
+  document.getElementById("plans").innerHTML=d.plans.map(p=>`<div class="plan${p.best?" best":""}">${p.best?'<span class="badge">Más elegido</span>':''}<h3>${p.name}</h3><div class="price">${cop(p.price)} <small>COP</small></div><ul>${p.items.map(i=>`<li>${i}</li>`).join("")}${p.no.map(i=>`<li class="no">${i}</li>`).join("")}</ul>${payBtn(cat,p)}</div>`).join("");
 }
 document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>show(b.dataset.cat)));
 show("A2");
+if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".route li,.soon div,.costs div,details").forEach(el=>{el.classList.add("rv");io.observe(el)});}
 </script>
 </body>
 </html>
